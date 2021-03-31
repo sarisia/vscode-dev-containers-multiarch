@@ -27,3 +27,7 @@ jobs:
       # - uses: docker/setup-buildx-action@v1
       - run: docker buildx build --platform linux/arm64 -t ${{ env.TARGET_IMAGE }} --push --file base.Dockerfile vscode-dev-containers/containers/ubuntu/.devcontainer
       - uses: sarisia/actions-status-discord@v1
+        if: always()
+        with:
+          webhook: ${{ secrets.DISCORD_WEBHOOK }}
+          title: ghcr.io/sarisia/vscode-dev-containers-multiarch:ubuntu (arm64)
