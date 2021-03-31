@@ -1,0 +1,3 @@
+[submodule "vscode-dev-containers"]
+	path = vscode-dev-containers
+	url = https://github.com/microsoft/vscode-dev-containers.git
