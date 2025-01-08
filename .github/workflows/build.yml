@@ -6,7 +6,7 @@ on:
     tags-ignore:
       - '**'
   schedule:
-    - cron: '34 17 * * *'
+    - cron: '34 17 * * 4'
   workflow_dispatch:
 
 jobs:
