@@ -11,7 +11,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04-arm
     env:
       TARGET_IMAGE: ghcr.io/sarisia/vscode-dev-containers-multiarch/base:ubuntu-20.04
     steps:
@@ -23,10 +23,6 @@ jobs:
           registry: ghcr.io
           username: sarisia
           password: ${{ github.token }}
-      - uses: docker/setup-qemu-action@v1
-        with:
-          platforms: arm64
-      # - uses: docker/setup-buildx-action@v1
       - run: |
           cd vscode-dev-containers/containers/ubuntu/.devcontainer
           docker buildx build --platform linux/arm64 -t ${{ env.TARGET_IMAGE }} --push --build-arg VARIANT=focal --file base.Dockerfile .
